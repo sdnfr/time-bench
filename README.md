@@ -5,9 +5,13 @@ This repository contains the code implementation of the paper titled "Time Is Al
 ## Quick Start
 
 To quickly explore the data from the paper without downloading tabular datasets and running simulations, you can utilize the provided notebooks.
+Make sure to use python 3.11 for ideal performance.
 
 ```bash
-git clone <repository_url>
+git clone <repository_url> time-bench
+cd time-bench
+python -m venv ./.venv
+source ./.venv/bin/activate
 pip install -r requirements.txt
 ```
 
