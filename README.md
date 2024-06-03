@@ -13,7 +13,20 @@ cd time-bench
 python -m venv ./.venv
 source ./.venv/bin/activate
 pip install -r requirements.txt
+pip install -i https://test.pypi.org/simple/ nasbench-TF2
 ```
+
+## Usage
+
+The notebooks in `timebench` demonstrate the evaluations performed to produce the output of the paper.
+
+- `n1`: Utilizes data from the LayerNAS paper (https://arxiv.org/abs/2304.11517) to output probabilities.
+- `n2`: Utilizes data from two experiments with 30 and 1000 runs, and outputs histograms and normal distributions of succeeding experiments applying the central limit theorem. You can use NAS Bench 101 to produce your own run data via the `create_run_data.py` script in the `scripts` folder.
+- `n3`: Plots the application of the central limit theorem using data from the NATS-Bench paper (https://arxiv.org/abs/2009.00437).
+- `n4`: Shows the extension of time budget for the NATS-Bench when comparing REINFORCE and regularized evolution. The data of a run is provided. You can generate your own run data using NATS-Bench via the `create_nats_data.py` script in the `scripts` folder.
+
+Feel free to explore and reproduce the results using the provided code and datasets. If you encounter any issues or have questions, please refer to the respective paper or raise an issue in this repository.
+
 
 ## Extensive Setup
 
@@ -32,7 +45,7 @@ To generate your own data using NAS Bench 101 and NATS-Bench, you need to downlo
     |-- nasbench_only108.tfrecord
 ```
 
-3. Since there is no maintained NAS Bench 101 repository that supports TensorFlow 2, the `nasbench-TF2` package is used. It's automatically installed via:
+3. Since there is no maintained NAS Bench 101 repository that supports TensorFlow 2, the `nasbench-TF2` package is used. It needs to be manually installed via:
 
 ```bash
 pip install -i https://test.pypi.org/simple/ nasbench-TF2
@@ -58,13 +71,3 @@ cd thirdparty
 git clone https://github.com/D-X-Y/AutoDL-Projects.git autodl
 ```
 
-## Usage
-
-The notebooks in `timebench` demonstrate the evaluations performed to produce the output of the paper.
-
-- `n1`: Utilizes data from the LayerNAS paper (https://arxiv.org/abs/2304.11517) to output probabilities.
-- `n2`: Utilizes data from two experiments with 30 and 1000 runs, and outputs histograms and normal distributions of succeeding experiments applying the central limit theorem. You can use NAS Bench 101 to produce your own run data via the `create_run_data.py` script in the `scripts` folder.
-- `n3`: Plots the application of the central limit theorem using data from the NATS-Bench paper (https://arxiv.org/abs/2009.00437).
-- `n4`: Shows the extension of time budget for the NATS-Bench when comparing REINFORCE and regularized evolution. The data of a run is provided. You can generate your own run data using NATS-Bench via the `create_nats_data.py` script in the `scripts` folder.
-
-Feel free to explore and reproduce the results using the provided code and datasets. If you encounter any issues or have questions, please refer to the respective paper or raise an issue in this repository.
